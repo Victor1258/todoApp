@@ -19,9 +19,9 @@ export async function POST(req: Request) {
       });
     }
 
-    if (title.length < 3) {
+    if (title.length < 4) {
       return NextResponse.json({
-        error: "Title must be at least 3 characters long",
+        error: "Title must be at least 4 characters long",
         status: 400,
       });
     }

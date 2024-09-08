@@ -1,0 +1,27 @@
+DATABASE_URL="prisma://accelerate.prisma-data.net/?api_key=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhcGlfa2V5IjoiMTM3ZTJmMjEtY2NjYi00Y2Q4LWJkZjQtMGUyMDE3ZjFjYWY4IiwidGVuYW50X2lkIjoiNmY5YTk4YmFmNDcwYzY5MDM0N2FkYjBlM2Y4ZjMwNWM0ZWU2YjI3ZGYyMTQwZTdhOTAwNzNiZjk5YWVjMjNhYyIsImludGVybmFsX3NlY3JldCI6IjFiNGFhMTBiLTcxNTMtNDNjNC04ZjM5LTg4MGRkZGEwODkyNSJ9.4i-CkerI2jBdrQBFtYzSN9pKiC5iCCuJKQnYmAaKHsc"
+DIRECT_URL="<YOUR_DATABASE_CONNECTION_STRING>"
+const { MongoClient, ServerApiVersion } = require('mongodb');
+const uri = "mongodb+srv://victorokosun:<Shoeplug123>@cluster0.mkq8o.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
+
+// Create a MongoClient with a MongoClientOptions object to set the Stable API version
+const client = new MongoClient(uri, {
+  serverApi: {
+    version: ServerApiVersion.v1,
+    strict: true,
+    deprecationErrors: true,
+  }
+});
+
+async function run() {
+  try {
+    // Connect the client to the server	(optional starting in v4.7)
+    await client.connect();
+    // Send a ping to confirm a successful connection
+    await client.db("admin").command({ ping: 1 });
+    console.log("Pinged your deployment. You successfully connected to MongoDB!");
+  } finally {
+    // Ensures that the client will close when you finish/error
+    await client.close();
+  }
+}
+run().catch(console.dir);

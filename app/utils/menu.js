@@ -25,6 +25,12 @@ const menu = [
     icon: todo,
     link: "/incomplete",
   },
+  {
+    id: 5,
+    title: "Beam",
+    icon: todo,
+    link: "/beam",
+  },
 ];
 
 export default menu;
